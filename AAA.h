@@ -1,4 +1,4 @@
-int AStub(int a, int b){return a%b;}
+int AStub(int a, int b);
 float BStub(float a, float b);
 
 namespace RCalc{

@@ -23,7 +23,7 @@ int main()
 
 리턴값 심볼 자동 생성.(o)
 클래스, 네임스페이스(o)
-ex) int x = AStub(a,b);
+ex) int x = isStub(a,b);
 if(x > 0){
     return 1;
 }
@@ -49,6 +49,7 @@ XLine *x = new XLine; // new 할당시 (포인터로 할당해줘야 컴파일)
 #include <ctime>
 #include "AAA.h"
 #include <string.h>
+#define Min(a,b) (((a) < (b)) ? (a) : (b))
 using namespace std;
 using namespace RCalc;
 int a=0;
@@ -106,19 +107,7 @@ void FParam(int (*fp)(int ,int)){ //포인터 파라메터 심볼
 }
 
 
-struct DStruct{
-    int st;
-    int ru;
-};
 
-
-void StructTest(struct DStruct Dt){
-    if(Dt.st > (a+b)){
-        Dt.st = a;
-    }else {
-        Dt.ru = b;
-    }
-}
 
 void assign(int** arr, int m, int n) //double pointer
 {
