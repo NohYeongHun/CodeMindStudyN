@@ -1,0 +1,1 @@
+int isStub(int a, int b);
