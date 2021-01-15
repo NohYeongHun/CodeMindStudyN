@@ -2,7 +2,7 @@
 #include "AAA.h"
 using namespace std;
 int StubTest(int a, int b){ // int 파라미터 심볼 생성
-    int x = AStub(a,b);
+    int x = AStub(1,1);
     if(x > (a-b)){
         return x;
     }else if(x <= (a-b)){

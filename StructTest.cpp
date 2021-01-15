@@ -10,16 +10,16 @@ struct DStruct{
     float ct;
 };
 
-void setDStruct(struct DStruct *p, int a, float b){
-    p->st = a;
-    p->ct = b;
-    if(p->st == p->ct){
+void setDStruct(struct DStruct p, int a, float b){
+    p.st =a;
+    p.ct =b;
+    if(p.st == p.ct){
         cout<< "p.st == p.ct"<<endl;
-        cout << p->st <<endl;
+        cout << p.st <<endl;
     }else{
         cout<< "not equal" << endl;
-        cout <<"p->st: " <<p->st <<endl;
-        cout <<"p->ct: " <<p->ct <<endl;
+        cout <<"pst: " <<p.st <<endl;
+        cout <<"pct: " <<p.ct <<endl;
     } 
     
 }
@@ -29,8 +29,8 @@ int main(){
     // StructTest(Dt, a,b);
     // cout<< Dt.st << endl;
     struct DStruct d1;
-    setDStruct(&d1,a,b);
-    cout << &d1 <<endl;
+    setDStruct(d1,a,b);
+    cout << d1.ct <<endl;
     cout << "set st : "<< a <<endl;
     cout << "set ct : "<< b <<endl;
     return 0 ;
