@@ -1,5 +1,4 @@
 #include <iostream>
-<<<<<<< HEAD
 #include <stdlib.h>
 using namespace std;
 /* 매개 변수에 a_str_list[][]라고 적으면 안되나요??
@@ -48,7 +47,6 @@ a_int_list[a_count][a_count]
 int main(){
     int a_int_list[a_count][a_count]={};
     doublePointer(a_int_list,a_count);
-=======
 }
 // call by reference  
 // 배열 포인터(*a_int_list)[a_count] 
@@ -60,7 +58,6 @@ int main(){
     // cout<<"ddd : "<<(*a_int_list)[1]<<endl; 
     // cout<<"CCC : "<<a_int_list[0][1] <<endl; 
 //call by reference랑 call by value가 혼합되있음. 상기 함수에서 주소값은 call by value이나 주소가 가리키는 값은 call by value형식이다.
-*/
 
 #define  a_count 5
 
@@ -115,5 +112,4 @@ int main(){
     int* arrarr;
     DoublePointer(&arrarr,a_count);
  
->>>>>>> main
 }
