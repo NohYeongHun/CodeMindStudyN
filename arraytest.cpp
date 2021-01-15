@@ -3,7 +3,11 @@
 using namespace std;
 
 void arrayTest(int i){ // i값에 -를 주니까.. ?? 오류.
+<<<<<<< HEAD
     int data[i];
+=======
+    int data[5];
+>>>>>>> main
     for(int index=0; index<i+2; index++){
         data[index] = index;
         cout << data[index] <<endl;
@@ -27,6 +31,7 @@ void arrayTest2(){ //배열 길이초과
 // void UnionFunc(UBox* up){
 //     up->x = 10;
 // }
+<<<<<<< HEAD
 //
 
 // 클래스 심볼  parameter 클래스
@@ -36,6 +41,17 @@ int main(){
     // cout << u1.x <<endl;
     // int i = 0;
     //arrayTest(i);
+=======
+
+
+// 클래스 심볼  parameter 클래스
+int main(){
+    // UBox u1;
+    // UnionFunc(&u1);
+    // cout << u1.x <<endl;
+    int i = 0;
+    arrayTest(i);
+>>>>>>> main
 
 
     // altx(5,5.5);
