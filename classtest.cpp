@@ -37,5 +37,9 @@ class A{
 int main(){
     A xA(5,5); //private 값 접근
     xA.ClassFunc(xA); // 클래스 심볼 생성
+<<<<<<< HEAD
+    cout << Min(10,20)<<endl;
+=======
+>>>>>>> main
     return 0;
 }
