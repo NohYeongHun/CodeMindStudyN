@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 해야될 것
 int(o)/float(o)/구조체/공용체/배열/포인터 파라메터 심볼 생성 ex) (int a, int b)
@@ -47,38 +46,16 @@ XLine *x = new XLine; // new 할당시 (포인터로 할당해줘야 컴파일)
 */
 #include <stdio.h>
 #include <iostream>
-#include <ctime>
-#include "AAA.h"
-#include <string.h>
-#define Min(a,b) (((a) < (b)) ? (a) : (b))
-=======
-#include <stdio.h>
-#include <iostream>
 #include "AAA.h"
 #include <string.h>
 
 #define  a_count 5
->>>>>>> main
 using namespace std;
 using namespace RCalc;
 int a=0;
 int b=0;
 int z=0;
 int w=0;
-<<<<<<< HEAD
-int Trray[5];
-
-float FReturn(float a, float b){
-    RMulti Rm;
-    if(Rm.ResultMultiple(a,b)> a+b && Rm.ResultDivision(a,b) > a-b ){
-        return Rm.ResultADD(a,b);
-    }else{
-        return (a+b)+(a-b);
-    }
-}
-
-int FTest(int a, int b){ 
-=======
 int m=5;
 int n=5;
 
@@ -138,7 +115,6 @@ union UBox{ // Union 선언
 };
 
 int FTest(int a, int b){ //int형 파라미터 심볼
->>>>>>> main
     if(a >=b){ 
         return a;
     }else{
@@ -147,33 +123,6 @@ int FTest(int a, int b){ //int형 파라미터 심볼
     
 }
 
-<<<<<<< HEAD
-int RTest(int a, int b){
-    int x = AStub(a,b);
-    if(x > (a-b)){
-        return 1;
-    }else if (x <=(a-b)){
-        return 2;
-    }else{
-        return 3;
-    }
-}
-
-void zeroTest(int a, int b){ //divide zero
-    if(a/b < a){
-        a = 0;
-    }else{
-        b = 0;
-    }
-}
-void arrayTest(){ //array length over
-    char data[5];
-    for(int index=0; index<6; index++){
-        data[index] = index;
-    }
-}
-
-=======
 float FReturn(float a, float b){ //float 파라미터 심볼 생성
     RMulti Rm; //Namespace안의 class
     if(Rm.ResultMultiple(a,b)> a+b && Rm.ResultDivision(a,b) > a-b ){
@@ -222,20 +171,12 @@ void PointerArray(int (*a_int_list)[a_count], int a_count_){
     }
      
 }
->>>>>>> main
 
 void FParam(int (*fp)(int ,int)){ //포인터 파라메터 심볼
     cout << a<<' '<<b <<endl;
 }
 
-<<<<<<< HEAD
-
-
-
-void assign(int** arr, int m, int n) //double pointer
-=======
 void assign(int** arr, int m, int n) //이중 포인터
->>>>>>> main
 {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
@@ -243,40 +184,6 @@ void assign(int** arr, int m, int n) //이중 포인터
         }
     }
 }
-<<<<<<< HEAD
-void NullCheck(int a, int b){
-    int *k;
-    cout << *k << endl;
-}
-
-union UBox{
-    bool a;
-    int x,y;
-};
-
-void UnionFunc(UBox* up){
-    up->x = 10;
-}
-
-class A{
-    public:
-    int x=10, y=10;
-};
-
-void ClassFunc(A x){
-    for(int i = 0; i<x.x; i++){
-    for(int j = 0; j<x.y; j++){
-        cout<<"*";
-    }
-        cout<<"\n";
-    }
-}
-
-int main(){
-    UBox u1;
-    UnionFunc(&u1);
-    cout << "UNION x value = "<<u1.x <<endl;
-=======
 
 int StubTest(int a, int b){ // 리턴값 심볼 자동 생성
 int x = AStub(1,1);
@@ -314,17 +221,11 @@ int main(){
     UBox u1;
     UnionTest(u1,3,2);
     cout << u1.getUnionX() << endl;
->>>>>>> main
     /*-------*/
     FParam(FTest);
     float tt =FReturn(5,3);
     cout << tt <<endl;
     /*-------*/
-<<<<<<< HEAD
-    int m=5;
-    int n=5;
-=======
->>>>>>> main
     int **arr = (int **)malloc(m * sizeof(int *));
     for (int r =0; r < m; r++)
         arr[r] = (int *)malloc(n * sizeof(int));
@@ -338,13 +239,5 @@ int main(){
     for (int i = 0; i < m; i++)
         free(arr[i]); //이차원 배열 동적할당 해제
     free(arr); 
-<<<<<<< HEAD
-
-    // int *p = &a;
-    // cout << *p <<endl;
-    // Potr(&p);
-    // cout << *p <<endl;
-=======
->>>>>>> main
     return 0;
 }
