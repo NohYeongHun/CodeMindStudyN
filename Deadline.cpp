@@ -172,8 +172,15 @@ void PointerArray(int (*a_int_list)[a_count], int a_count_){
      
 }
 
-void FParam(int (*fp)(int ,int)){ //포인터 파라메터 심볼
-    cout << a<<' '<<b <<endl;
+// int(반환값 자료형), (int,int)(매개변수) 자료형)
+void FParam(int (*fp)(int ,int), float (*ap)(float, float)){ //함수 포인터 파라메터
+    cout <<"fp() : " <<fp(a,b)<<endl; // fp(int a, int b) == FTest(int a, int b);
+    cout <<"ap() : " <<ap(z,w) <<endl;
+    if(fp(a,b) > ap(z,w)){
+        cout <<"fp(a,b) > ap(z,w)"<<fp(a,b) << endl;
+    }else{
+        cout <<"fp(a,b) < ap(z,w)"<<ap(z,w) << endl;
+    }
 }
 
 void assign(int** arr, int m, int n) //이중 포인터
@@ -222,7 +229,7 @@ int main(){
     UnionTest(u1,3,2);
     cout << u1.getUnionX() << endl;
     /*-------*/
-    FParam(FTest);
+    FParam(FTest,FReturn);
     float tt =FReturn(5,3);
     cout << tt <<endl;
     /*-------*/
