@@ -1,10 +1,6 @@
 {
     "files.associations": {
-<<<<<<< HEAD
-        "ostream": "cpp"
-=======
         "ostream": "cpp",
         "iostream": "cpp"
->>>>>>> main
     }
 }
