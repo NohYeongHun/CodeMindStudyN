@@ -27,13 +27,6 @@ void arrayTest2(){ //배열 길이초과
 // void UnionFunc(UBox* up){
 //     up->x = 10;
 // }
-<<<<<<< HEAD:arraytest.cpp
-
-//
-
-// 클래스 심볼  parameter 클래스
-
-=======
 //
 
 // 클래스 심볼  parameter 클래스
@@ -42,7 +35,6 @@ void arrayTest2(){ //배열 길이초과
     // cout << u1.x <<endl;
     // int i = 0;
     //arrayTest(i);
->>>>>>> Nbranch:C-C++/arraytest.cpp
 
 
 // 클래스 심볼  parameter 클래스
@@ -52,10 +44,6 @@ int main(){
     // cout << u1.x <<endl;
     int i = 0;
     arrayTest(i);
-<<<<<<< HEAD:arraytest.cpp
-
-=======
->>>>>>> Nbranch:C-C++/arraytest.cpp
 
     // altx(5,5.5);
     // abc();
