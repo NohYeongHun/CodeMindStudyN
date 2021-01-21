@@ -61,8 +61,8 @@ void DelHashData(int id)
     */
     if(hashTable[hash_key]->id == id)
     {
-        //
-        delNode = hashTable[hash_key];
+        // Node* delNode = hashTable[hash_key]; 삭제할 노드를 담음.
+        delNode = hashTable[hash_key]; 
         hashTable[hash_key] = hashTable[hash_key]->hashnext;
     }
     else
