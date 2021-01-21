@@ -2,7 +2,10 @@
 using namespace std;
 
 int main(){
-    double d;
-    scanf("%lf",&d);
-    printf("%.11lf",d);
+    int a , b, c;
+    cin>>a;
+    cin.ignore(256,' ');
+    cin>>b;
+    c = a==b;
+    cout <<c;
 }
