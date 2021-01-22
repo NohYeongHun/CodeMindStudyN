@@ -41,3 +41,6 @@
 fork 클릭 시 내 repository에 그 사람의 repository가 저장됨.
 
   
+# git fork
+- fork를 떠서 
+- pull request

@@ -2,10 +2,10 @@
 using namespace std;
 
 int main(){
-    int a , b, c;
-    cin>>a;
-    cin.ignore(256,' ');
-    cin>>b;
-    c = a==b;
-    cout <<c;
+    int a=1;
+    while(a!=0)
+    {   
+        cin >>a;
+        cout<<a<<endl;
+    }
 }
