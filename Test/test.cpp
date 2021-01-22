@@ -2,10 +2,12 @@
 using namespace std;
 
 int main(){
-    int a=1;
-    while(a!=0)
-    {   
-        cin >>a;
-        cout<<a<<endl;
+    int n, i=0, sum=0;
+    cin>>n;
+    while(sum<n)
+    {
+        i++;
+        sum+=i;
     }
+    cout<<i<<endl;
 }
