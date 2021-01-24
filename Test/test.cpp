@@ -1,13 +1,10 @@
 #include <iostream>
 using namespace std;
-
 int main(){
-    int n, i=0, sum=0;
-    cin>>n;
-    while(sum<n)
-    {
-        i++;
-        sum+=i;
+    long long int m,a,b,n;
+    cin>>a>>b>>n;
+    for(m=1;m<n;m++){
+        a=a*b;
     }
-    cout<<i<<endl;
+    cout<<a;
 }
