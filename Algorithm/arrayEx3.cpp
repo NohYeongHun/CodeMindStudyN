@@ -42,6 +42,7 @@ int main(){
     int i,j;
     int cnt=0;//오른쪽, 아래쪽 상태 0,1
     int x=1,y=1; // 시작 좌표.(2,2)
+    int direction[2][2] ={{1,0},{0,1}}; //1,0 => 오른쪽 0,1 =>아래
     int ant[10][10];
     int map[10][10]={};
     //미로 상자구조 입력(먹이, 위치)
@@ -50,6 +51,9 @@ int main(){
             cin>>map[i][j];
         }
     }
+    cout<<endl;
+    cout<<"map[y][x+2]: "<<map[y][x+2]<<endl;
+    map[y][x]=9; //map[1][1]=9;
     //로직
     //계속오른쪽이 비었는지 체크해야됨.
     while(1){
@@ -81,5 +85,4 @@ int main(){
         }
         cout<<endl;
      }
-    
 }
