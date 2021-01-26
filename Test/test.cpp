@@ -1,24 +1,29 @@
 #include <iostream>
 using namespace std;
-#define MAX_DIGITS 10
-int main() {
+int main(){
     int A,B,C;
-    int Multiple;
-    int N[9];
-    int T[10]={0};
+    int Sum, cnt=0;
+    int X[10]={};
+    int T[10]={};
     cin>>A>>B>>C;
-    Multiple=A*B*C;
-    cout<<Multiple<<"\n";
-    for(int i=0;i<9;i++){
-        N[i]=Multiple%10;
-        Multiple/=10;
+         Sum = A*B*C; 
+    for(int i=0;i<=9;i++){
+        if(Sum!=0){ 
+            X[i]=Sum%10; 
+            cnt++;
+        }
+        Sum = Sum/10;
     }
-    for(int i=0;i<9;i++){
-        cout<<"N["<<i<<"]: "<<N[i]<<"\n";
-        // if(N[i]==i){ 
-        //     T[i]+=1;
-        // }
+    
+    for(int i=0;i<=9;i++){
+        for(int j=0; j<cnt;j++){
+            if(X[j]==i){
+                T[i]+=1;
+            }
+        }
     }
 
-    
+    for(int i=0;i<=9;i++){
+        cout<<T[i]<<"\n";
+    }
 }
