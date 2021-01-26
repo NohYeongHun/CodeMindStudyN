@@ -86,3 +86,63 @@ int main(){
         cout<<endl;
      }
 }
+/* 성실한 개미 solution -1
+#include <stdio.h>
+int map[12][12];
+
+void back(int r, int c)
+{
+	if(map[r][c] == 2)
+	{
+			map[r][c] = 9;
+			return ;
+	}
+	map[r][c] = 9;
+
+	if(map[r][c+1] != 1)
+		back(r, c+1);
+	else if(map[r+1][c] != 1)
+		back(r+1, c);
+}
+
+int main()
+{
+	int i, j;
+	for(i = 1; i <= 10; i++)
+		for(j = 1; j <= 10; j++)
+			scanf("%d", &map[i][j]);
+	back(2, 2);
+
+	for(i = 1; i <= 10; i++,puts(""))
+		for(j = 1; j <= 10; j++)
+			printf("%d ", map[i][j]);
+}
+*/
+/* 성실한 개미 solution-2
+#include <iostream>
+using namespace std;
+int main() 
+{ 
+    int map[10][10],x=1,y=1,i,j; 
+    for(i=0;i<10;i++) 
+        for(j=0;j<10;j++) 
+            cin>>map[i][j];
+    while(map[x][y]!=2) 
+    { 
+        map[x][y]=9; 
+        if(map[x][y+1]!=1) y+=1; 
+        else if(map[x+1][y]!=1) x+=1; 
+        else break; 
+    } 
+    cout<<endl;
+    map[x][y]=9; 
+    for(i=0;i<10;i++) 
+    { 
+        for(j=0;j<10;j++) 
+            cout<<map[i][j]<<" ";
+        cout<<endl;
+    } 
+    return 0; 
+}
+
+*/
