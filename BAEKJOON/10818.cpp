@@ -9,4 +9,6 @@ int main() {
         cin>>A[i];
     for(int i=0; i<N;i++)
         cout<<A[i]<<" ";
+    free(A);
+    delete[]A;
 }
