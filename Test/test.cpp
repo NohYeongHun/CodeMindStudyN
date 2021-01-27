@@ -45,8 +45,9 @@ int main(){
     for(int i=1; i<=100;i++){
         num[i]=i;
         for(int j=0; j<i;j++){
-            if(d(j)==num[i])
-            cout<<"i : "<<i<<"what.."<<"\n";
+            if(d(j)==num[i]){
+            cout<<"i have generator : "<<i<<"\n";
+            }
         }
     }
     
