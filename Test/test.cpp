@@ -42,9 +42,13 @@ int d(int n);
 int main(){
     
     // cout<<d(20);// 11 = 11 + 1 + 1
-    for(int i=1; i<=10000;i++)
+    for(int i=1; i<=100;i++){
         num[i]=i;
-    
+        for(int j=0; j<i;j++){
+            if(d(j)==num[i])
+            cout<<"i : "<<i<<"what.."<<"\n";
+        }
+    }
     
 }
 
