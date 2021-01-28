@@ -34,24 +34,5 @@ b가 처음 등장하는 위치,
         }
         cout<<t[i]<<" ";
     }
-    
-    
-    // string S;
-    // cin>>S;
-    // //C 타입 문자열로 변환
-    // char *buffer = new char[100];
-    // strcpy(buffer, S.c_str());
-
-    // //문자열 자르기
-    // char *tok = strtok(buffer, " ");// 자르는 함수
-    // while(tok !=NULL){
-    //     strArr.push_back(string(tok));
-    //     tok = strtok(NULL, " ");
-    // }
-    //for(int i=0; i<strArr.size(); i++) cout << strArr[i] << "\n";
-    //출력
-    // for(int i=0; i<sizeof(a)/sizeof(char);i++){
-
-    // }
 }
 

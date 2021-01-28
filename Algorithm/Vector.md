@@ -161,6 +161,42 @@ long long sum(vector<int> &a){ //참조로 전달하는 이유 메모리 절약.
     return ans;
 }
 ```
+<br>
+-------------------------------------
+```c++
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+ int main()
+{   
+    int T; //테스트 케이스 개수
+    int R; //반복횟수.
+    string str,x;//반복할 문자.
+    vector<string> result;
+    cin>>T;
+    for(int i=0; i<T;i++){
+        cin>>R>>str;
+        string s; 
+        for(int j=0; j<str.size(); j++){
+            for(int k=0;k<R;k++)
+                s += str[j];
+        }
+        result.push_back(s); // 뒤에다가 s원소 넣어줌.
+    }
+
+    //iterator it 에 result.begin()값을 넣고. it!=result.end()일때 까지 it++
+    for(vector<string>::iterator it = result.begin();it!=result.end(); it++){
+        cout<<*it<<endl;
+        cout <<"it["<<0<<"] : "<<it[0]<<endl;
+    } // == it[0],it[1]
+    
+    // vector<string>::iterator xx= result.begin();
+    // cout<<"why no cout? : "<<xx[0]<<"\n";
+    // cout<<"how vector? : "<<xx[1]<<"\n";
+}
+
+```
 
 # reference
 [vector구조]https://blockdmask.tistory.com/70

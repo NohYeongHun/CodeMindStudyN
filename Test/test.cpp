@@ -1,34 +1,44 @@
-#include <iostream>
-using namespace std;
 /*
-문제
-문자열 S를 입력받은 후에, 각 문자를 R번 반복해 
-새 문자열 P를 만든 후 출력하는 프로그램을 작성하시오. 
-즉, 첫 번째 문자를 R번 반복하고, 두 번째 문자를 R번 반복하는 
-식으로 P를 만들면 된다. 
-S에는 QR Code "alphanumeric" 문자만 들어있다.
-
-QR Code "alphanumeric" 문자는 
-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./: 이다.
-
-입력
-첫째 줄에 테스트 케이스의 개수 T(1 ≤ T ≤ 1,000)가 주어진다.
- 각 테스트 케이스는 반복 횟수 R(1 ≤ R ≤ 8),
-  문자열 S가 공백으로 구분되어 주어진다. 
-  S의 길이는 적어도 1이며, 20글자를 넘지 않는다. 
-
-출력
-각 테스트 케이스에 대해 P를 출력한다.
+알파벳을 숫자로 맵핑하고 알파벳은char []
+char b[] => int a[]변경
+int a[] 안에 원소들에 모두 2를더함
+for(~@~@)
+    a[i]=a[i]+2;
+for(~@@)
+    x+=a[i];
 */
- int main()
-{   
-    int T; //테스트 케이스 개수
-    int R; //반복횟수.
-    char str[20];//반복할 문자.
-    cin>>T;
-    for(int i=0; i<T;i++)
-        cin>>R>>str;
-    
-    
-}
+#include <iostream>
+#include <string>
+using namespace std;
+int main(){
+    char ASC[26];
+    for(int i=0; i<26; i++)
+        ASC[i] = 'A'+i;
+    cout<<ASC[0];
+    int X;
+  	char alpabet[]={
+          'A','B','C',
+          'D','E','F',
+          'G','H','I',
+          'J','K','L',
+          'M','N','O',
+          'P','Q','R','S',
+          'T','U','V',
+          'W','X','Y','Z',
+          };
+    int num[] = {2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,7,8,8,8,9,9,9,9};
+    for(int i=0;i<26;i++){
+        num[i]=num[i]+2;
+    }
+    string s;
+    cin>>s;
+    for(int i=0;i<26;i++){
+        for(int j=0; j<s.size();j++)
+            if(s[j] == alpabet[i]){
+                X+=num[i];
+                cout<<X<<"\n";
+        }
+           
+    }
 
+}
