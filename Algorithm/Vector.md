@@ -137,7 +137,8 @@ vector<int>v;
 for(auto iter=v.begin(); iter!=v.end();iter++)
   *iter+=2020;
   //code
-    ```
+```
+
 ```c++
 #include <iostream>
 #include <vector>
@@ -161,8 +162,7 @@ long long sum(vector<int> &a){ //참조로 전달하는 이유 메모리 절약.
     return ans;
 }
 ```
-<br>
--------------------------------------
+
 ```c++
 #include <iostream>
 #include <string>
@@ -195,8 +195,18 @@ using namespace std;
     // cout<<"why no cout? : "<<xx[0]<<"\n";
     // cout<<"how vector? : "<<xx[1]<<"\n";
 }
-
 ```
 
 # reference
-[vector구조]https://blockdmask.tistory.com/70
+[vector구조]https://blockdmask.tistory.com/70<br>
+[Replace&nbsp;Substring&nbsp;with&nbsp;another&nbsp;substring]https://stackoverflow.com/questions/4643512/replace-substring-with-another-substring-c
+[std::pair]https://en.cppreference.com/w/cpp/utility/pair
+[pop_back()]https://en.cppreference.com/w/cpp/utility/pair
+[initialize&nbsp;std::vector&&nbsp;with&nbsp;hardcoded&nbsp;elements]https://stackoverflow.com/questions/2236197/what-is-the-easiest-way-to-initialize-a-stdvector-with-hardcoded-elements
+[C++&nbsp;17Fold&nbsp;expressions]http://egloos.zum.com/sweeper/v/3213802
+[가변인자]https://blankspace-dev.tistory.com/235
+[std::forward]https://modoocode.com/302
+[c++17활성화]https://3dmpengines.tistory.com/1902
+
+
+

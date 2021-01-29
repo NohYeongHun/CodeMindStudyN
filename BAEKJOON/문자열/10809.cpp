@@ -25,7 +25,7 @@ b가 처음 등장하는 위치,
     for(int i=0; i<26;i++){
         for(int j=0; j<sizeof(baek)/sizeof(char);j++){
             if(a[i]==baek[j]){ // ex) a[0]==baek[1]이랑 같으면 t[i]=1;
-            //    a[i]=' '; // a[i]값을 뺀다.
+                //a[i]=' '; // a[i]값을 뺀다.
                 t[i]=j;   //t[i]배열에 j값을 넣어줌. j=0~100
                 if(t[i]!=-1){
                     break;
