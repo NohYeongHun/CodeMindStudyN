@@ -22,8 +22,8 @@ using namespace std;
 typedef int element;
 
 element stack[STACK_SIZE]; // 1차원 배열 스택 선언
-int top = -1; //top index
-int cnt = 0;//스택안의 정수의 개수 세기
+int top = -1;
+int cnt = 0, numcheck=0; //스택안의 정수의 개수 세기
 
 //스택이 공백인지 확인하는 연산.
 int isEmpty(){ 
@@ -40,6 +40,7 @@ int isFull(){
 //스택의 top에 원소를 삽입하는 연산
 void push(element item){
 	if (isFull()){
+		cout<<"\n\n Stack is FULL \n";
 		return;
 	}
 	else{ 
@@ -67,51 +68,86 @@ element peek(){
 	else return stack[top];
 }
 
+void printStack(){
+	int i;
+	cout<<"\n STACK [ ";
+	for(i=0; i<=top; i++)
+		cout<<stack[i];
+	cout<<"] ";
+}
+
+
 int main(){
 	//선언
 	element item; // 스택의 요소.
 	int N; // 1~10000까지의 정수 명령수를 결정
-	string order,pcheck; //ex) "push" "1" 구분
-	int numcheck=0; 
+	string order,pcheck;
+
 	//입력
 	cin>>N;
 	int *num=(int *)malloc(sizeof(int)* N);//출력값.
-
-	//로직
 	for(int i=0; i<N; i++){
 			cin>>order;
 		if(order=="push"){
 			cin>>pcheck;
 			push(stoi(pcheck));
+
 		}else if(order=="top"){ // 스택의 가장 위의 정수 출력
+			// num[i]=peek();
+			// cout<<"stack[top] : "<< stack[top];
 			if(top==-1){
+				// num[i]=-1;
+				// cout<<"num["<<i<<"] : "<<num[i]<<"\n";	
 				num[numcheck]=-1;
 				numcheck++;
 			}
 			else{
+				// num[i]=stack[top]; 
 				num[numcheck]=stack[top];
 				numcheck++;
+				// cout<<"num["<<i<<"] : "<<num[i]<<"\n";
 			}
+			// cout<<peek()<<"\n"; 
+
 		}else if(order=="size"){
 				num[numcheck]=cnt;
 				numcheck++;
+			// num[i]=cnt;
+			// cout<<"num["<<i<<"] : "<<num[i]<<"\n";
+			// cout<<"cnt : "<<cnt<<"\n";
+
 		}else if(order=="empty"){
 			if(isEmpty()){
 				num[numcheck]=1;
 				numcheck++;
+				// num[i]=1;
+				// cout<<"num["<<i<<"] : "<<num[i]<<"\n";
+				// cout<<1<<"\n";
 			}
 			else {
 				num[numcheck]=0;
 				numcheck++;
+				// num[i]=0;
+				// cout<<"num["<<i<<"] : "<<num[i]<<"\n";
+				// cout<<0<<"\n";
 				}
+
 		}else if(order=="pop"){
 			num[numcheck]=pop();
 			numcheck++;
+			// num[i]=pop();
+			// cout<<"num["<<i<<"] : "<<num[i]<<"\n";
+			// cout<<pop()<<"\n";
 		}
+
 	}
+
+	//로직
+
 	//출력
 	for(int i=0; i<numcheck; i++){
-		cout<<num[i]<<"\n";
+		cout<<"num["<<i<<"] : "<<num[i]<<"\n";
 	}
 	free(num);
 }
+//push면 i값이 늘어남..
