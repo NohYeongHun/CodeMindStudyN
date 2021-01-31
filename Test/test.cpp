@@ -70,8 +70,8 @@ element peek(){
 int main(){
 	//선언
 	element item; // 스택의 요소.
-	int N; // 1~10000까지의 정수 명령수를 결정
-	string order,pcheck; //ex) "push" "1" 구분
+	int N,pcheck; // 1~10000까지의 정수 명령수를 결정
+	string order; //ex) "push" "1" 구분
 	int numcheck=0; 
 	//입력
 	cin>>N;
@@ -82,7 +82,7 @@ int main(){
 			cin>>order;
 		if(order=="push"){
 			cin>>pcheck;
-			push(stoi(pcheck));
+			push(pcheck);
 		}else if(order=="top"){ // 스택의 가장 위의 정수 출력
 			if(top==-1){
 				num[numcheck]=-1;
