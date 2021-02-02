@@ -86,15 +86,18 @@ int main(){
 	char VPS[100]; //입력 문자열
 	while(VPS[0]!='.'){
 		cin.getline(VPS, 100); //공백이 포함된 문자열 입력 받기.
-		cout<<"VPS[0] : " <<VPS[0]<<"\n";
-		cout<<"End VPS : "<<VPS<<"\n";
+		if(check(VPS)==1){
+			cout<<"YES"<<"\n";
+		}else if(check(VPS)==0){
+			cout<<"NO"<<"\n";
+		}
 	}
 	//입력
 
 }
 
 int check(char* VPS){
-	char ch;
+	char ch, open_ch;
 	int n = strlen(VPS);
 	for(int i=0; i<n;i++){
 		ch = VPS[i]; // ch = VPS[0];
@@ -108,9 +111,9 @@ int check(char* VPS){
 			case ']':
 			if(isEmpty()) return 0; // isEmpty() == true이면 즉 스택이 비어있으면 return 0; 
 			else{ //스택이 비어있지 않으면
-				 pop(); //top의 원소를 pop()해서 가지고옴.
-				//  if(open_ch=='(' && ch!=')') // open_ch =='('이고  ch =='(''이면.
-				//  	return 0;
+				 open_ch = pop(); //top의 원소를 pop()해서 가지고옴.
+				 if(open_ch=='(' && ch!=')'|| open_ch=='[' && ch!=']') // open_ch =='('이고  ch =='(''이면.
+				 	return 0;
 			}
 			break;
 		}
