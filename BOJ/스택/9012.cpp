@@ -93,7 +93,7 @@ int main(){
 }
 
 int check(char* VPS){
-	char ch;
+	char ch, open_ch;
 	int n = strlen(VPS);
 	for(int i=0; i<n;i++){
 		ch = VPS[i]; // ch = VPS[0];
@@ -105,9 +105,10 @@ int check(char* VPS){
 			case ')': //ch가 ')'인 경우
 			if(isEmpty()) return 0; // isEmpty() == true이면 즉 스택이 비어있으면 return 0; 
 			else{ //스택이 비어있지 않으면
-				 pop(); //top의 원소를 pop()해서 가지고옴.
-				//  if(open_ch=='(' && ch!=')') // open_ch =='('이고  ch =='(''이면.
-				//  	return 0;
+				 open_ch = pop(); //top의 원소를 pop()해서 가지고옴.
+				 if(open_ch=='(' && ch!=')') // open_ch =='('이고  ch !=')'이면.
+				 	return 0;
+				// => 이부분은 예외처리.
 			}
 			break;
 		}
@@ -119,6 +120,13 @@ int check(char* VPS){
 		}
 		return 0;
 	}
-	//아무런 이상이없다면. 
+	
 	return 1;
 }
+
+/*
+해설
+'('가 나왔을때는 stack에 push()를해줘서 stack안에 집어넣고
+')'가 나왔을때는 stack에 pop()을 해줘서 안에 '('가 있을때만 괄호가 정상적으로 동작하는경우이다.
+ex) '()(())' => push pop push push pop pop
+*/
