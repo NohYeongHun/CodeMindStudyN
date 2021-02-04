@@ -5,10 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch T",
+            "request": "launch",
+            "mainClass": "Test.T",
+            "projectName": "CodeMindStudyN_859b2ba1"
+        },
+        {
             "name": "(gdb) 시작",
             "type": "cppdbg",
             "request": "launch",
-            "program": "프로그램 이름 입력(예: ${workspaceFolder}/a.exe)",
+            //“현재 디렉토리에 빌드된 a.exe 파일을 디버깅한다” 설정이다.
+            "program": "${workspaceFolder}/a.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

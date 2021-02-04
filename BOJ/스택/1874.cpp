@@ -120,3 +120,43 @@ int main(){
 	free(arr);
 	free(sign);
 }
+/*요점 : +가 많아서 오류가 나는 경우는 있지만
+-가 많아서 오류가 나는 경우는 없다.
+즉 push()가 예상보다 많이 나와서 수열을 완성하지 못하는 경우는 있지만
+pop()이 예상보다 많이 나올수는 없다. why? push()를 해서 스택에 채워야만이 pop()을 할 수 있기 때문
+*/
+/*
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n, cur = 1;
+    vector<int> stack;
+    vector<char> result;
+
+    scanf("%d", &n);
+    stack.reserve(n);
+    result.reserve(n);
+    for (int i = 0; i < n; ++i) {
+        int num;
+        scanf("%d", &num);
+
+        while (cur <= num) {
+            stack.push_back(cur++);
+            result.push_back('+');
+        }
+        
+        if (stack.back() == num) {
+            stack.pop_back();
+            result.push_back('-');
+        } else {
+            printf("NO");
+            return 0;
+        }
+    }
+
+    for (unsigned int i = 0; i < result.size(); ++i) { printf("%c\n", result[i]); }
+    return 0;
+}
+*/
