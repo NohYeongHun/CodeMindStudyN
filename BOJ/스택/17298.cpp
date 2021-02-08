@@ -79,80 +79,58 @@ int main(){
 	int N; //수열의 길이.	
 	cin>>N;
 	int i =0;
-	int NGE[N];
-	int obig[N];
-	fill_n(obig,N,-1);
+	vector<int> V(N); //N개의 원소를 가지는 벡터 생성
 
-	for(i=0; i<N; i++) cin>>NGE[i];
+	vector<int> answer(V.size(), -1); // -1로 초기화 크기는 N개;
+	for(i=0; i<N; i++) cin>>V[i];
 	
-	for(i = 0; i < N; i++){
-		while(!isEmpty() && NGE[peek()] < NGE[i] ){ // V[0] < V[1] 
-			obig[peek()] = NGE[i]; 
+	for(i = 0; i < V.size(); i++){
+		while(!isEmpty() && V[peek()] < V[i] ){ // V[0] < V[1] 
+			answer[peek()] = V[i]; 
 			pop();
 		}
 		push(i);
 	}
-
-	for(int i=0; i<N; i++){
-		cout<<obig[i]<<" ";
+	for(int i: answer){ // 배열 출력.
+		cout<<i<<" ";
 	}
 }
-	
+/*
 
-	//입력
-	
-	// for(i=0;i<N;i++){ // 상수 시간복잡도
-	// 	cin>>NGE[i];
-	// }
-
-	//로직
-
-	//현재 스택의 top 은 7 ex) 3 5 2 7 의경우
-	// for(i=N-1;i>=0;i--){ // 상수 시간복잡도
-	// 	push(NGE[i]);
-	// }
-	// i=0;
-	// for(i=0;i<N;i++){ // big-O(n^2)
-	// 	while(!isEmpty()){ //스택이 빌때까지 돌아감.
-	// 		if(NGE[i]<peek()){ // 7 pop() 5 pop()
-	// 			obig[i]=pop();
-	// 			check =true;
-	// 	}
-	// 		else if(NGE[i]>=peek())	//2 pop() 3pop()
-	// 			pop();
-	// 		if(check) break;
-	// 		if(!check) 
-	// 			obig[i]=-1;
-	// 	}
-	// 		EmptyMake(); //스택을 비워줌.
-	// 		check=false;
-	// 		j++;// j=0 시작
-	// 		c=j;	 		
-	// 		for(j=N-1;j>=c;j--)
-	// 			push(NGE[j]);
-	// 		j=c;
-	// }
-
-	//숫자 변수를 잘 맞춰야 답이나옴. i,j
-	// -1을 맞춰야됨이제.
-	// 스택에 NGE를 구하지 않은 인덱스를 넣어라?
-	
-	// for(i=N-1;i>=0;i--){ // 상수 시간복잡도
-	// 	push(NGE[i]); // 4 => 3 5 2 7  => stack{3 5 2 7}
-	// }
-	
-	// for(i=0;i<N;i++){ // big-O(n^2)
-	// 	if(NGE[i]>=peek()){
-	// 		obig[i]=-1;
-	// 		top--;
-	// 	}
-	// 	else if(NGE[i]<peek()){
-	// 		 obig[i]=stack[top];
-	// 	}
-	// }
-
-	
-	// //출력
-	// for(int k=0; k<N; k++){
-	// 	cout<<obig[k]<<" ";
-	// }
+#include <iostream> 
+#include <iomanip> 
+#include <string> 
+#include <vector> 
+#include <cmath> 
+#include <algorithm>
+#include <climits>
+#include <set> 
+#include <unordered_map> 
+#include <unordered_set> 
+#include <map> 
+#include <cstdio>
+#include <stack>
+  using namespace std; 
+int main() 
+{ 
+    ios_base::sync_with_stdio(false); 
+    cin.tie(NULL);
+     int n; 
+     cin >> n; 
+     vector<int> v(n); 
+     for (int i = 0; i < n; i++) cin >> v[i]; 
+     stack<int> st; 
+     vector<int> ans(v.size(), -1);
+      for (int i = 0; i < v.size(); i++) 
+      { 
+          while (!st.empty() && v[st.top()] < v[i] ) 
+            {   
+                cout<<"st.top() : "<<st.top()<<"\n";
+                ans[st.top()] = v[i]; 
+                st.pop(); 
+            } st.push(i); 
+        } 
+        for (int x : ans) cout << x << " "; 
+        return 0; 
+    }
+*/
