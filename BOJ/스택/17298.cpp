@@ -85,11 +85,28 @@ int main(){
 	for(i=0; i<N; i++) cin>>V[i];
 	
 	for(i = 0; i < V.size(); i++){
-		while(!isEmpty() && V[peek()] < V[i] ){ // V[0] < V[1] 
-			answer[peek()] = V[i]; 
-			pop();
+		while(!isEmpty() && V[peek()] < V[i] ){ 
+			/* 
+			4 => 3, 5, 2, 7
+			stack이 비어있지않고 V[peek()]<V[i]가 성립하면 answer[peek()]= V[i]를 넣어줌.
+			i=0일때 => push(0) stack[top]= 0; stack ={0}
+			i=1일때 => while(!isEmpty() && V[peek()]< V[i]) => !isEMpty() = true V[peek()==0]  <V[1] => V[0]<V1 3<5
+			answer[0] = V[1] // answer[0] = 5;
+			pop() => isEmpty() =>  while문 탈출
+			push(1); stack={1} stack[top]=1;
+			i=2일때 => !isEmpty() = true V[1] < V[2] => 5<2 => false 
+			=> push(2) stack={2,1} stack[top]=2;
+			i=3일때 => !isEmpty() = true; V[stack[top]==2]<V[3] => 2<7(true)
+			=> answer[2] = V[3]; answer[2]= 7; pop() => stack[top]=1;
+			=> !isEmpty() =true; V[stack[top]==1]<V[3] => 5<7(true)
+			=> answer[1] = V[3]; answer[1]= 7; pop() => stack[top]=NULL;
+			push(3);
+			i=4 종료. 마지막으로 스택엔 {3}원소가 남아있게됨.
+			*/
+			answer[peek()] = V[i]; // V[peek()]<V[i]이면 출력할 배열의 인덱스에 V[i]값을 넣어줌.  
+			pop(); // 해당 인덱스값을 사용하였으므로 pop();
 		}
-		push(i);
+		push(i); //스택에 인덱스값을 푸시 0 1 2 3 
 	}
 	for(int i: answer){ // 배열 출력.
 		cout<<i<<" ";
