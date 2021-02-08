@@ -17,8 +17,6 @@ NGE(1) = 5, NGE(2) = 7, NGE(3) = 7, NGE(4) = -1이다.
 총 N개의 수 NGE(1), NGE(2), ..., NGE(N)을 공백으로 구분해 출력한다.
 */
 #include <iostream>
-#include <string>
-#include <cstring>
 using namespace std;
 #define STACK_SIZE 1000000
 typedef int element;
@@ -69,20 +67,72 @@ element peek(){
 	else return stack[top];
 }
 
+void EmptyMake(){
+	while(!isEmpty()){
+		pop();
+	}
+}
 /*
 4
 3527 => 5 7 7 -1
 오큰수 3은 5 2 7 과 다비교를해야함.
+오큰수가 없는경우에 obig에 -1을 넣어줘야함.
+제약조건 시간복잡도 T는  big-O(N)<= T <big-O(N^2)
 */
 int main(){
-	int N; // 크기가 N인 수열
-	int i=0, j=0, c=1;
-	cin>>N; //
-	int *nge = (int*)malloc(sizeof(int)*N); //일반 수열
-	int *obig = (int*)malloc(sizeof(int)*N);//오큰수
-	for(i=0; i<N;i++){
-		cin>>nge[i];
-		cout<<"nge["<<i<<"] : "<<nge[i]<<"\n";
-	}	
+	//선언
+	int N; //수열의 길이.	
+	cin>>N;
+	int *NGE =(int *)malloc(sizeof(int)*N); //수열을 담을 배열
+	int *obig=(int *)malloc(sizeof(int)*N); //수열을 출력할 배열
+	int i=0,j=0,c; // c는 j값을 담아둘 변수.
+	bool check = false;
+	//입력
+	for(i=0;i<N;i++){ // 상수 시간복잡도
+		cin>>NGE[i];
+		// push(NGE[i]);
+	}
 
+	//로직
+
+	//현재 스택의 top 은 7 ex) 3 5 2 7 의경우
+
+	//숫자 변수를 잘 맞춰야 답이나옴. i,j
+	// -1을 맞춰야됨이제.
+	// 스택에 NGE를 구하지 않은 인덱스를 넣어라?
+	for(i=N-1;i>=0;i--){ // 상수 시간복잡도
+		push(NGE[i]);
+	}
+	i=0;
+	for(i=0;i<N;i++){ // big-O(n^2)
+		while(!isEmpty()){ //스택이 빌때까지 돌아감.
+			if(NGE[i]<peek()){ // 7 pop() 5 pop()
+				obig[i]=pop();
+				check =true;
+		}
+			else if(NGE[i]>=peek())	//2 pop() 3pop()
+				pop();
+			if(check) break;
+			if(!check) 
+				obig[i]=-1;
+		}
+			EmptyMake(); //스택을 비워줌.
+			check=false;
+			j++;// j=0 시작
+			c=j;	 		
+			for(j=N-1;j>=c;j--)
+				push(NGE[j]);
+			j=c;
+	}
+
+	//top의 값을 움직여볼까?
+	for(i=0;i<N;i++){
+		
+	}
+	//출력
+	for(int k=0; k<N; k++){
+		cout<<obig[k]<<" ";
+	}
+	free(NGE);
+	free(obig);
 }
