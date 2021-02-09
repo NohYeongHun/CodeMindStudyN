@@ -1,158 +1,59 @@
-/*
-문제
-크기가 N인 수열 A = A1, A2, ..., AN이 있다. 
-수열의 각 원소 Ai에 대해서 오큰수 NGE(i)를 구하려고 한다. 
-Ai의 오큰수는 오른쪽에 있으면서 Ai보다 큰 수 중에서 가장 왼쪽에 있는 수를 의미한다.
- 그러한 수가 없는 경우에 오큰수는 -1이다.
+/* 문제
+카지노에서 제일 인기 있는 게임 블랙잭의 규칙은 상당히 쉽다. 
+카드의 합이 21을 넘지 않는 한도 내에서, 
+카드의 합을 최대한 크게 만드는 게임이다. 
+블랙잭은 카지노마다 다양한 규정이 있다.
 
-예를 들어, A = [3, 5, 2, 7]인 경우 
-NGE(1) = 5, NGE(2) = 7, NGE(3) = 7, NGE(4) = -1이다.
- A = [9, 5, 4, 8]인 경우에는 NGE(1) = -1, NGE(2) = 8, NGE(3) = 8, NGE(4) = -1이다.
+한국 최고의 블랙잭 고수 김정인은 새로운 블랙잭 규칙을 만들어 상근, 창영이와 게임하려고 한다.
+
+김정인 버전의 블랙잭에서 각 카드에는 양의 정수가 쓰여 있다.
+그 다음, 딜러는 N장의 카드를 모두 숫자가 보이도록 바닥에 놓는다.
+그런 후에 딜러는 숫자 M을 크게 외친다.
+
+이제 플레이어는 제한된 시간 안에 N장의 카드 중에서 3장의 카드를 골라야 한다. 
+블랙잭 변형 게임이기 때문에, 플레이어가 고른 카드의 합은 
+M을 넘지 않으면서 M과 최대한 가깝게 만들어야 한다.
+
+N장의 카드에 써져 있는 숫자가 주어졌을 때,
+ M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 구해 출력하시오.
 
 입력
-첫째 줄에 수열 A의 크기 N (1 ≤ N ≤ 1,000,000)이 주어진다. 
-둘째에 수열 A의 원소 A1, A2, ..., AN (1 ≤ Ai ≤ 1,000,000)이 주어진다.
+첫째 줄에 카드의 개수 N(3 ≤ N ≤ 100)과 M(10 ≤ M ≤ 300,000)이 주어진다. 
+둘째 줄에는 카드에 쓰여 있는 수가 주어지며, 이 값은 100,000을 넘지 않는 양의 정수이다.
+
+합이 M을 넘지 않는 카드 3장을 찾을 수 있는 경우만 입력으로 주어진다.
 
 출력
-총 N개의 수 NGE(1), NGE(2), ..., NGE(N)을 공백으로 구분해 출력한다.
-*/
+첫째 줄에 M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력한다. */
+
+
 #include <iostream>
 #include <vector>
 using namespace std;
-#define STACK_SIZE 1000000
-typedef int element;
-
-element stack[STACK_SIZE]; // 1차원 배열 스택 선언
-int top = -1; //top index
-int cnt = 0;//스택안의 정수의 개수 세기
-
-//스택이 공백인지 확인하는 연산.
-int isEmpty(){ 
-	if(top==-1)
-		return 1; //true
-	else return 0; //false
-}
-
-//스택이 포화 상태인지 확인하는 연산
-int isFull(){
-	if(top == STACK_SIZE -1) return 1;
-	else return 0;
-}
-//스택의 top에 원소를 삽입하는 연산
-void push(element item){
-	if (isFull()){
-		return;
-	}
-	else{ 
-	stack[++top]= item;
-	cnt++;
-	}
-}
-
-//스택의 top에서 원소를 삭제하는 연산
-element pop(){
-	if (isEmpty()){
-		exit(1);
-	}
-	else{ 
-		cnt--;
-		return stack[top--];
-		} // 현재 top의 원소를 삭제한 후 top 감소
-}
-
-//스택의 top 원소를 검색하는 연산
-element peek(){
-	if(isEmpty()){
-		exit(1);
-		}
-	else return stack[top];
-}
-
-void EmptyMake(){
-	while(!isEmpty()){
-		pop();
-	}
-}
 
 int main(){
-	//선언
-	int N; //수열의 길이.	
-	cin>>N;
-	int i =0;
-	int NGE[N];
-	int obig[N];
-	fill_n(obig,N,-1);
-
-	for(i=0; i<N; i++) cin>>NGE[i];
-	
-	for(i = 0; i < N; i++){
-		while(!isEmpty() && NGE[peek()] < NGE[i] ){ // V[0] < V[1] 
-			obig[peek()] = NGE[i]; 
-			pop();
-		}
-		push(i);
+	//입력 및 선언
+	int N,M; /* N: 카드의 개수 M: M을 넘지 않으면서 M에 최대한 가까운 카드 3장의 합을 출력.*/
+	int sum = 0,max = 0; /* M을 넘지않는 3개 카드의 최대합 수 */
+	int i=0,j=0,k=0;
+	cin>>N>>M; /* 카드개수 입력 받고 최대합숫자 입력 */
+	vector<int> V(N);
+	for(i=0;i<N;i++){
+		cin>>V[i];
 	}
-
-	for(int i=0; i<N; i++){
-		cout<<obig[i]<<" ";
-	}
-}
-	
-
-	//입력
-	
-	// for(i=0;i<N;i++){ // 상수 시간복잡도
-	// 	cin>>NGE[i];
-	// }
-
 	//로직
-
-	//현재 스택의 top 은 7 ex) 3 5 2 7 의경우
-	// for(i=N-1;i>=0;i--){ // 상수 시간복잡도
-	// 	push(NGE[i]);
-	// }
-	// i=0;
-	// for(i=0;i<N;i++){ // big-O(n^2)
-	// 	while(!isEmpty()){ //스택이 빌때까지 돌아감.
-	// 		if(NGE[i]<peek()){ // 7 pop() 5 pop()
-	// 			obig[i]=pop();
-	// 			check =true;
-	// 	}
-	// 		else if(NGE[i]>=peek())	//2 pop() 3pop()
-	// 			pop();
-	// 		if(check) break;
-	// 		if(!check) 
-	// 			obig[i]=-1;
-	// 	}
-	// 		EmptyMake(); //스택을 비워줌.
-	// 		check=false;
-	// 		j++;// j=0 시작
-	// 		c=j;	 		
-	// 		for(j=N-1;j>=c;j--)
-	// 			push(NGE[j]);
-	// 		j=c;
-	// }
-
-	//숫자 변수를 잘 맞춰야 답이나옴. i,j
-	// -1을 맞춰야됨이제.
-	// 스택에 NGE를 구하지 않은 인덱스를 넣어라?
-	
-	// for(i=N-1;i>=0;i--){ // 상수 시간복잡도
-	// 	push(NGE[i]); // 4 => 3 5 2 7  => stack{3 5 2 7}
-	// }
-	
-	// for(i=0;i<N;i++){ // big-O(n^2)
-	// 	if(NGE[i]>=peek()){
-	// 		obig[i]=-1;
-	// 		top--;
-	// 	}
-	// 	else if(NGE[i]<peek()){
-	// 		 obig[i]=stack[top];
-	// 	}
-	// }
-
-	
-	// //출력
-	// for(int k=0; k<N; k++){
-	// 	cout<<obig[k]<<" ";
-	// }
+	/* sum= V[0]+V[1]+V[2] 
+	0,1,2 / 0,1,3 /0,1,4/ 0,2,3 / 0,2,4 / 0,3,4 / 1,2,3/1,2,4/2,3,4
+	*/
+	for(i=0;i<N;i++){/* 시작 인덱스 정하기. */
+		for(j=i+1;j<N;j++){
+			for(k=j+1;k<N;k++){
+				sum = V[i]+V[j]+V[k];
+				if(sum>max && sum <=M)
+					max=sum;
+			}
+		}
+	}
+	//출력
+	cout<<max;
+}
