@@ -31,16 +31,25 @@ int minCalc(){
         // 기호가 나오기전까지 temp에는 숫자가 들어가게 됨.
         if(V[i]=='+' || V[i]=='-'|| V[i]=='\0') 
         {
-            if(check)
-                result -=stoi(temp);
-            else
+            if(check){
+                cout<<"temp :"<<temp<<"\n";
+                result -=stoi(temp); /* String to int*/
+            }
+            else{ 
+                /* 55- 아직 check가 false인 상황 55를 result에 더해줌 */
+                cout<<"temp :"<<temp<<"\n";  
                 result +=stoi(temp);
-            temp=""; 
+            }
+            /* 초기화 해줌. */
+            temp=""; // 초기화
+            /* -기호가 나올 시 check=true로 변경 */
             if(V[i]== '-')
                 check=true;
-            continue;
+            continue; /* for문의 맨끝으로 이동 why? 기호를 temp에 추가해주면 안되기 때문 */
         }
         temp +=V[i]; 
+        /* 55+ => temp[0]=5, temp[1]=5 위의 해당기호에 해당할시 stoi(string to int temp)
+         */
         //continue 이동 위치 
     }
     return result;
