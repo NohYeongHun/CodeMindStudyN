@@ -105,6 +105,7 @@ int main() {
     return 0;
 }
 
+해당 문제는 삽입 정렬을 사용해서 푸는 문제이다.
  */
 
 #include <iostream>
