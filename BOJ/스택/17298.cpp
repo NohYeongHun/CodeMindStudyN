@@ -85,7 +85,7 @@ int main(){
 	for(i=0; i<N; i++) cin>>V[i];
 	
 	for(i = 0; i < V.size(); i++){
-		while(!isEmpty() && V[peek()] < V[i] ){ 
+		while(!isEmpty() && V[peek()] < V[i]){ 
 			/* 
 			4 => 3, 5, 2, 7
 			stack이 비어있지않고 V[peek()]<V[i]가 성립하면 answer[peek()]= V[i]를 넣어줌.
@@ -151,3 +151,25 @@ int main()
         return 0; 
     }
 */
+
+/* 
+void Input(){
+	 // Input()
+} 
+
+int GetNGE(int idx)
+	int value = sequence[idx], nge = -1;
+	if(Peek()==214783467) nge = -1;
+	else{
+		while(Peek()<= value) Pop();
+		nge = Peek();
+		if(Peek()==2147483647) nge = =1;
+	}
+	Push(value);
+
+	return nge;
+
+배열을 만들고
+stack[1000001] ={}
+}
+ */
