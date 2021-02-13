@@ -35,28 +35,42 @@ using namespace std;
 12 14
  */
 
-void process(vector <vector<int>> matrix){
     
-}
 int main(){
     int N;
+    int min=100000;
+    int A=100000;
+    int B=0;
+    int cnt=0;
     cin>>N;
     vector<vector<int>> matrix(N, vector<int>(N));
+
     for(int i=0; i<N; i++){
-        cout<<"i : "<<i<<"\n";
         for(int j=0; j<2; j++){
             cin>>matrix[i][j]; // matrix[0][0]=1 [0][1]=4
         }
     }
-    cout<<"\n";
+
+    // cout<<"\n";
+    //min 초기화
     for(int i=0; i<N; i++){
-        cout<<"i : "<<i<<"\n";
-        for(int j=0; j<2; j++){
-            cout<<matrix[i][j]<<" ";
+        if(min>=matrix[i][1]){
+            min=matrix[i][1];
         }
-        cout<<"\n";
     }
-    
+    cnt++;
+
+        for(int i=0;i<N;i++){
+            if(matrix[i][0]>=min && A>=matrix[i][1]){ //matrix
+                A=matrix[i][1]; // A=7; 
+                min=A; //min=7;
+                cnt++; //cnt =2
+            }
+            A=100000;
+        }
+        // cout<<"min : " <<min<<"\n";
+        // cout<<"cnt : "<<cnt<<"\n";
+        cout<<cnt;
 }
 
 
