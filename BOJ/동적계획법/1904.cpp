@@ -47,5 +47,3 @@ int main(){
     cin >> N;
     cout<<tile(N);
 }
-
-
