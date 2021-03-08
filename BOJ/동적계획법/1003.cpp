@@ -44,6 +44,7 @@ fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한
     0 1
     1 2
 }
+return값을 사용한 계산이아니라 함수의 호출을 통해 메모이제이션한 값을 가져온다.
   */
 #include <math.h>
 #include <iostream>
@@ -85,7 +86,8 @@ int main(){
         cin>>dp[i];        
     }
     for(int i=0; i<T;i++){
-        temp=fibo(dp[i]);
+        //fibo(dp[i]) == memo[dp[i]][0]+memo[dp[i]][1]
+        temp=fibo(dp[i]); 
         cout<<temp-memo[dp[i]][1]<<" "<<temp-memo[dp[i]][0]<<"\n";
     }
   
