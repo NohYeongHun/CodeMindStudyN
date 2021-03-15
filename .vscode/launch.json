@@ -9,14 +9,14 @@
             "name": "Launch T",
             "request": "launch",
             "mainClass": "Test.T",
-            "projectName": "CodeMindStudyN_859b2ba1"
+            "projectName": "CodeMindStudyN_859b2ba1"//
         },
         {
             "name": "(gdb) 시작",
             "type": "cppdbg",
             "request": "launch",
             //“현재 디렉토리에 빌드된 a.exe 파일을 디버깅한다” 설정이다.
-            "program": "${workspaceFolder}/a.exe",
+            "program": "${workspaceFolder}/test.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
