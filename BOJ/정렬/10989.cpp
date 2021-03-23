@@ -23,8 +23,8 @@ void input(){
     }
 
     // 각 숫자를 개수만큼 출력해주기
-    for(int i = 1 ; i <= 10000; i++)
-        for (int j = 0; j < num[i]; j++)
+    for(int i = 1 ; i <= 10000; i++) 
+        for (int j = 0; j < num[i]; j++) // num[1]==0이면 출력 x 1이면 1한번 출력
             cout << i << "\n";
 }
 int main()
