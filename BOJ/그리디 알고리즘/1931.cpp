@@ -48,6 +48,7 @@ int main(){
     for(int i=0; i<N;i++){
         cin >> T[i].second>> T[i].first;
     }
+    //sort()함수는 first만 정렬 가능.
     sort(T.begin(),T.end()); // 끝나는 시간 오름차순 정렬
     for(int i=0; i<N; i++)
         cout << T[i].second<<" "<< T[i].first<<"\n";
