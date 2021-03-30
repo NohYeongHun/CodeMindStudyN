@@ -33,46 +33,9 @@
 첫째 줄에 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 출력한다. 
 삽입 정렬 개념이 들어간다.
 why? 가장 적은수를 앞에 두게 배열을 이동시키면 해결되는 문제
-*/
-/*
 
 // 선택 정렬
 #include <stdio.h>
-
-int main() {
-    int N = 5;
-
-    int arr[10] = {3, 4, 5, 1, 2};
-    int min;
-    int idx;
-
-    for(int i=0; i<N; i++) {
-        // 각 단계별 최소값을 찾기 위한 변수 초기화
-        min = 100000000;
-        idx = -1;
-
-        // 각 단계별 최소값 찾기
-        for(int j=i; j<N; j++ ){
-            if(min > arr[j]) {
-                min = arr[j];
-                idx = j;
-            }
-        }
-
-        // 각 단계별 최소값 이동 (swap)
-        int temp = arr[i];
-        arr[i] = arr[idx];
-        arr[idx] =  temp;
-    }
-
-    // 선택 정렬 완료 후 데이터 정렬
-    for(int i=0; i<N; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    return 0;
-}
-
 //삽입 정렬 
 
 int main() {
@@ -149,5 +112,40 @@ int main(){
 	}
 	//출력
 		cout<<T;
-
 }
+/*
+필요한 속성
+int num, sum, now, N;
+vector<int> T;
+N => 사람의 수
+num => vector 배열에 푸시해줄 값.
+now => 현재 줄을 선사람이 소요해야 하는 시간
+sum = > 총 시간
+vector<int> T => 각사람의 소요시간이 들어갈 배열
+#include <math.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int N;
+vector<int> T;
+int main()
+{       
+    cin.tie(NULL); 
+    ios::sync_with_stdio(false);
+    int num;
+    int now = 0 ,sum = 0;
+    cin>>N;
+    for(int i=0; i<N; i++){
+        cin>>num;
+        T.push_back(num);
+    }
+    sort(T.begin(),T.end());
+    for(auto iter=T.begin(); iter!=T.end(); iter++){
+        now+=*iter;
+        sum+=now;
+    }
+    cout<<sum;
+}
+*/

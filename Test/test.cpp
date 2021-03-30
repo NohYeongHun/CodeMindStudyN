@@ -1,33 +1,35 @@
-//boj.kr/1931
+//boj.kr/1541
 #include <math.h>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
-/* 
 
-*/
-
-
-int N;
-int cnt=0;
+string calc;
+void Input(){
+    cin>>calc;
+}
 int main()
-{   
-    int min =0;
-    cin.tie(NULL); 
-    ios::sync_with_stdio(false);
-    cin>>N;
-    vector<pair<int,int>> T(N);
-    for(int i=0; i<N;i++){
-        cin>>T[i].second>>T[i].first;
-    }
-    // 정렬
-    sort(T.begin(),T.end());
-    for(int i=0;i<N;i++){
-        if(T[i].second>=min){
-            min=T[i].first;
-            cnt++;
+{       
+    bool check =false;
+    string temp="";
+    int result =0;
+    Input();
+    for(int i=0; i<=calc.size();i++){
+        if(calc[i]=='+'||calc[i]=='-'||calc[i]=='\0')
+        {
+            if(check){
+                result -=stoi(temp);
+            }
+            else{
+                result +=stoi(temp);
+            }
+            temp="";
+            if(calc[i]=='-')
+                check = true;
+            continue;
         }
+        temp+=calc[i];
     }
-    cout<<cnt;
+    cout<<result;
 }
