@@ -1,7 +1,4 @@
-#include <math.h>
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 #define MAX 10000
 
