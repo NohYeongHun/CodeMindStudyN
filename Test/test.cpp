@@ -1,49 +1,42 @@
-/* 
-삽입정렬
-최악의 경우 => 시간복잡도 O(n^2) N + (N-1) .. .. 0 
-일반적인 경우에 삽입정렬이 버블과, 선택정렬과 비교해서 가장 적게 연산한다.
-삽입정렬이 최악의 경우 => 10,9,8,7,6,5,4,3,2,1
-거의 정렬된 상태라면 가장 효율적임.
-ex) 2 3 4 5 6 7 8 9 10
- */
+#include <string>
+#include <vector>
 #include <iostream>
 using namespace std;
-#define MAX 10000
-
-int N;
-int array[MAX+1];
-
-// 정렬의 기본이되는 함수 인수 두개의 위치를 바꿔줌.
-void *swap(int &arr1, int &arr2){
-    int temp =0;
-    temp = arr1;
-    arr1 = arr2;
-    arr2 = temp;
-}
+vector<int> food_times;
+int n;
+int food;
+long long sum=0;
+long long k;
 void input(){
-    cin>>N;
-    for(int i=0;i<N;i++){
-        cin>>array[i];
+    cin>>n;
+    cin>>k;
+    for(int i=0; i<n;i++){
+        cin>>food;
+        sum+=food;
+        food_times.push_back(food);
     }
 }
-void solve(){
-    int j = 0;
-    for(int i=0; i < N-1; i++){ // j와 j+1의 대소비교를 해서 위치를 바꾸므로 N-1까지만 비교하면 된다.
-        j=i; // j=0부터 시작.
-        while(array[j]>array[j+1]){ // array[j]> array[j+1]이면 둘의 위치를 바꾸고 array[j] <=array[j+1]일때 까지 j-- why? => 정렬을 위해.
-            swap(array[j],array[j+1]);
-            j--; // array[j] <=array[j+1]일때 까지 j-- why? => 정렬을 위해.
-        }
+//  vec.erase(vec.begin()+3); // 세 번째 인덱스 원소 제거.
+int solution(vector<int> food_times, long long k) {
+    int answer = 0; //현재 음식의 위치
+    int i=0;
+    if(k>=sum) return -1;
+    vector<pair<int,int>> que;
+    for(int i= 0; i<n; i++){
+        que.push_back(make_pair(food_times[i],i+1));
     }
-}
-void print(){
-    for(int i=0;i<N;i++){
-        cout<<array[i]<<" ";
+    long long sum_value =0;
+    long long previous =0;
+    int length = food_times.size();
+    
+    while(sum_value +((que[0].first - previous)* length)<=k){
+        int now = que[0].first;
     }
+
+    return answer;
 }
-int main()
-{   
+int main(){
     input();
-    solve();
-    print();
+    cout<<solution(food_times,k);
+
 }
